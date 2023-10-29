@@ -1,0 +1,37 @@
+<%- include('layout/header') %>
+
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 mt-5">
+            <div class="card card-shadow">
+              <div class="card-header text-center bg-success">
+                <h2>Edit Users (<%= user.name %>) </h2>
+              </div>
+              <div class="card-body bg-light">
+                <form action="/update/<%= user._id  %>" method="post" id="add-form" enctype="multipart/form-data">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" value="<%= user.name  %>" id="name" name="name" placeholder="Enter your name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" value="<%= user.email  %>" name="email" placeholder="Enter your email" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" value="<%= user.phone  %>" name="phone" placeholder="Enter your phone number" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="image" class="form-label">Select Image</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                    <img src="/<%= user.image  %>" width="100" class="img-thumbnail mt-1">
+                  </div>
+                  <input type="hidden" name="old_image" value="<%= user.image  %>">
+                  <button type="submit" name="submit" class="btn btn-success">Update User</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include('layout/footer') %>
